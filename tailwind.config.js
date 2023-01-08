@@ -4,8 +4,14 @@ module.exports = {
 		"./pages/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
+	mode: "jit",
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				nokia: "'Noticia Text', serif",
+				ssp: "'Source Sans Pro', sans-serif",
+			},
+		},
 	},
 	plugins: [],
 };

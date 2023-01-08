@@ -1,56 +1,42 @@
-import { pdfjs, Document, Page } from "react-pdf";
+import { pdfjs, Document, Page, twoColumnRight } from "react-pdf";
 import React, { useState, useEffect } from "react";
-
+import Image from "next/image";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
+import styles from "../../styles/Home.module.css";
+import { motion } from "framer-motion";
+import LandingText from "../../components/landingtext";
+import Viewer from "../archive/viewer";
+
 export default function Archive() {
+	const [articlepath, setArticlePath] = useState("/disor_e2022s.pdf");
 	const [numPages, setNumPages] = useState(null);
-	const [pageNumber, setPageNumber] = useState(1);
 
 	const onDocumentLoadSuccess = ({ numPages }) => {
 		setNumPages(numPages);
 	};
 
-	const goToPrevPage = () =>
-		setPageNumber(pageNumber - 1 <= 1 ? 1 : pageNumber - 2);
-
-	const goToNextPage = () =>
-		setPageNumber(pageNumber + 1 >= numPages ? numPages - 1 : pageNumber + 2);
-
 	return (
-		<div className="min-h-screen bg-[#c8fc20] text-black">
-			<nav className="flex justify-center space-x-4 items-center text-xl py-4">
-				<div className="text-xl grid grid-cols-2 border-2 place-items-center border-black divide-x-2 divide-dashed divide-black py-2 border-rounded border-dashed">
-					<button
-						className="flex px-8 py-2 justify-center"
-						onClick={goToPrevPage}
-					>
-						Prev
-					</button>
-					<button
-						className="flex px-8 py-2 justify-center"
-						onClick={goToNextPage}
-					>
-						Next
-					</button>{" "}
+		<div className="bg-white min-h-screen flex flex-col justify-start items-center  text-black">
+			<marquee className={styles.marqueeParent}>
+				<div className={styles.marqueeChild}>
+					<div className=" text-white font-extrabold flex items-center h-16 text-2xl ">
+						DISORIENTATION 2022 OUT NOW
+					</div>
 				</div>
-				<p>
-					Page {pageNumber}, {pageNumber + 1} of {numPages}
-				</p>
-			</nav>
-			<div className="flex justify-center">
-				<Document
-					file="disor_2017 (spring).pdf"
-					onLoadSuccess={onDocumentLoadSuccess}
-				>
-					<Page pageNumber={pageNumber} />
-				</Document>
-				<Document
-					file="disor_2017 (spring).pdf"
-					onLoadSuccess={onDocumentLoadSuccess}
-				>
-					<Page pageNumber={pageNumber + 1 > numPages ? 1 : pageNumber + 1} />
-				</Document>
+			</marquee>
+
+			<motion.div
+				className="box"
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+			/>
+
+			<div className="w-8/12 py-40">
+				<div className="flex justify-center mb-60">
+					<LandingText />
+				</div>
+				<Viewer article="/disor_e2022s.pdf" />
 			</div>
 		</div>
 	);
