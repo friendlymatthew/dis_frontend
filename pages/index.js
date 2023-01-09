@@ -17,23 +17,47 @@ import {
 import LandingText from "../components/landingtext";
 import { Nav, Title } from "../styles/styled";
 import { wrap } from "@motionone/utils";
+import Viewer from "../components/storyteller";
 
 function useParallax(value, distance) {
 	return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-function ImageComponent({ id }) {
+function ImageText({ id }) {
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({ target: ref });
-	const y = useParallax(scrollYProgress, 300);
+	const y = useParallax(scrollYProgress, 70);
 
 	return (
 		<div className="w-full flex justify-center">
-			<section className=" ">
-				<div ref={ref}>
-					<motion.h2 style={{ y }}>
-						<img src={"/1tag.png"} />
-					</motion.h2>{" "}
+			<section className="">
+				<div ref={ref} className="w-full">
+					<motion.h1 style={{ y }}>
+						<div className=" w-full">
+							<img src={"/1tag.png"} />
+						</div>
+					</motion.h1>{" "}
+				</div>
+				<div>hello my name is bart simpson</div>
+			</section>
+		</div>
+	);
+}
+
+function ImageComponent({ id }) {
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({ target: ref });
+	const y = useParallax(scrollYProgress, 70);
+
+	return (
+		<div className="w-full flex justify-center">
+			<section className="">
+				<div ref={ref} className="w-full">
+					<motion.h1 style={{ y }}>
+						<div className=" w-full">
+							<img src={"/1tag.png"} />
+						</div>
+					</motion.h1>{" "}
 				</div>
 
 				<img src={`/${id}.png`} alt="A London skyscraper" />
@@ -42,7 +66,7 @@ function ImageComponent({ id }) {
 	);
 }
 
-function ParallaxText({ children, baseVelocity = 100 }) {
+function ParallaxText({ children, baseVelocity = 400 }) {
 	const baseX = useMotionValue(0);
 	const { scrollY } = useScroll();
 	const scrollVelocity = useVelocity(scrollY);
@@ -101,7 +125,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
 export default function Home() {
 	const { scrollYProgress } = useScroll();
-	const x = useTransform(scrollYProgress, [-0.01, 0.3], [0, 500]);
+	const x = useTransform(scrollYProgress, [-0.01, 0.3], [0, 2000]);
 
 	const scaleX = useSpring(scrollYProgress, {
 		stiffness: 100,
@@ -124,44 +148,52 @@ export default function Home() {
 					href="https://fonts.gstatic.com"
 					crossOrigin="true"
 				/>
+
 				<link
-					href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,700;1,400&family=Source+Sans+Pro:900&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Changa+One&family=Erica+One&family=Fira+Sans:wght@400;500&family=Noticia+Text:ital,wght@0,700;1,400&display=swap"
 					rel="stylesheet"
 				/>
 			</Head>
 
-			<main className="  text-white">
-				<div className="my-8 ">
-					<motion.div
-						className={styles.progressBar}
-						style={{ scaleX: scrollYProgress }}
-					/>
+			<main className="">
+				<div className="group h-screen flex flex-col justify-between bg-cover bg-[url('/wallpaper.svg')]">
+					<nav></nav>
+					<div className="flex justify-center pt-32 text-xl space-x-4 text-white  font-nokia">
+						<a className="bg-black px-8 py-4 hover:scale-105 hover:text-black hover:bg-white transition ease-in duration-500  cursor-pointer	">
+							Who we are
+						</a>
+						<a className="bg-black px-8 py-4 hover:scale-105 hover:text-black hover:bg-white transition ease-in duration-500 cursor-pointer	">
+							Archive
+						</a>
+						<a className="bg-black px-8 py-4 hover:scale-105 hover:text-black hover:bg-white transition ease-in duration-500 cursor-pointer ">
+							Contact
+						</a>
+					</div>
+					<div className="font-ericas text-[6em] text-black transition ease-in duration-400   tracking-tight">
+						<Title style={{ x }}>SPRING EDITION 2022 BELOW</Title>
+					</div>
 				</div>
 
-				<div className="flex flex-col justify-between min-h-screen w-full group">
-					<motion.div className={styles.progressbar} style={{ scaleX }} />
-					<Nav>
-						<a href="#">Home</a>
-						<a href="#">Archive</a>
-						<a href="#">Contact</a>
-					</Nav>
+				<div className="group flex flex-col justify-between min-h-screen lg:h-screen w-full group bg-white text-black">
+					<div className="">
+						<div className="my-8 bg-white text-xs font-nokia">
+							<motion.div
+								className={styles.progressBar}
+								style={{ scaleX: scrollYProgress }}
+							>
+								Written by mk'23 & nl'23
+							</motion.div>
+						</div>
+					</div>
 					<div className="w-full flex justify-center">
 						<div className="w-8/12">
 							<LandingText />
 						</div>
 					</div>
-
-					<div className="font-nokia text-[10em] font-semibold group-hover:text-red-600 tracking-tight">
-						<Title style={{ x }}>SPRING EDITION 2022</Title>
-					</div>
 				</div>
 
 				<div className="min-h-screen bg-white text-black">
-					{[1].map((image) => (
-						<div className="grid grid-cols-1 gap-y-20">
-							<ImageComponent id={image} />
-						</div>
-					))}
+					<Viewer article={"disor_e2022s.pdf"} />
 				</div>
 
 				<section className="w-full bg-white text-black">

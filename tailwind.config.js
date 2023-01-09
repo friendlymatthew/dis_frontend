@@ -9,7 +9,8 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				nokia: "'Noticia Text', serif",
-				ssp: "'Source Sans Pro', sans-serif",
+				firas: "'Fira Sans', sans-serif",
+				ericas: "'Erica One', cursive",
 			},
 		},
 	},

@@ -12,14 +12,6 @@ export const Header = styled.div`
 	color: black;
 `;
 
-export const BackgroundImg = styled.img`
-	width: 100%;
-	height: 100%;
-	background-color: white;
-	position: absolute;
-	opacity: 0.8;
-`;
-
 export const Title = styled(motion.h1)`
 	font-weight: 800;
 	z-index: 1;
@@ -35,12 +27,8 @@ export const Nav = styled.nav`
 	gap: 0 2em;
 	margin: 30px 30px 30px auto;
 	a {
-		color: black;
 		text-decoration: none;
 		font-size: 20px;
-		&:hover {
-			color: green;
-		}
 	}
 `;
 
