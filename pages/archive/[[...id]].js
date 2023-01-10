@@ -6,7 +6,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 import styles from "../../styles/Home.module.css";
 import { motion } from "framer-motion";
 import LandingText from "../../components/landingtext";
-import Viewer from "../archive/viewer";
+import Viewer from "../../components/storyteller";
 
 export default function Archive() {
 	const [articlepath, setArticlePath] = useState("/disor_e2022s.pdf");
@@ -17,27 +17,24 @@ export default function Archive() {
 	};
 
 	return (
-		<div className="bg-white min-h-screen flex flex-col justify-start items-center  text-black">
-			<marquee className={styles.marqueeParent}>
-				<div className={styles.marqueeChild}>
-					<div className=" text-white font-extrabold flex items-center h-16 text-2xl ">
-						DISORIENTATION 2022 OUT NOW
-					</div>
+		<div className="bg-white min-h-screen flex flex-col justify-between items-center  text-black">
+			<nav className="flex space-x-2 justify-end w-8/12 py-4">
+				<div>home</div>
+				<div>archive</div>
+				<div>contact</div>
+			</nav>
+			<div className="flex flex-col justify-center items-center w-full">
+				<input
+					className="border outline-none border-black placeholder:text-black focus:placeholder:text-white focus:border-white bg-white h-16 text-3xl px-4 focus:bg-black focus:text-white transition ease-in duration-700 w-4/12"
+					placeholder="Search keywords for articles"
+				/>
+				<div className="w-full grid grid-cols-4">
+					<div></div>
 				</div>
-			</marquee>
-
-			<motion.div
-				className="box"
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-			/>
-
-			<div className="w-8/12 py-40">
-				<div className="flex justify-center mb-60">
-					<LandingText />
-				</div>
-				<Viewer article="/disor_e2022s.pdf" />
 			</div>
+			<footer>
+				<div>this is the footer</div>
+			</footer>
 		</div>
 	);
 }

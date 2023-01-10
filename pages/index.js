@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import React, { useState, useEffect, useRef } from "react";
@@ -164,12 +165,14 @@ export default function Home() {
 							<a className="bg-white px-12 py-4 border border-[#7a7a7a]  text-black hover:bg-black hover:text-white transition ease-in duration-500  cursor-pointer	">
 								Who we are
 							</a>
-							<a className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer	">
-								Archive
-							</a>
-							<a className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer ">
+							<Link href="/archive">
+								<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer	">
+									Archive
+								</div>
+							</Link>
+							<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer ">
 								Contact
-							</a>
+							</div>
 						</div>
 					</div>
 					<div className="font-ericas text-[6em] text-black transition ease-in duration-400   tracking-tight">
