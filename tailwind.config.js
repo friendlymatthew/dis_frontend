@@ -11,6 +11,7 @@ module.exports = {
 				nokia: "'Noticia Text', serif",
 				firas: "'Fira Sans', sans-serif",
 				ericas: "'Erica One', cursive",
+				roboto: "'Roboto Mono', monospace",
 			},
 		},
 	},

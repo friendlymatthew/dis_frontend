@@ -23,7 +23,7 @@ function useParallax(value, distance) {
 	return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-function ImageText({ id }) {
+function ImageText({ id, size, wig }) {
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({ target: ref });
 	const y = useParallax(scrollYProgress, 70);
@@ -31,22 +31,20 @@ function ImageText({ id }) {
 	return (
 		<div className="w-full flex justify-center">
 			<section className="">
-				<div ref={ref} className="w-full">
+				<div ref={ref} className="w-8/12 pl-30">
 					<motion.h1 style={{ y }}>
-						<div className=" w-full">
-							<img src={"/1tag.png"} />
+						<div className="">
+							<img src={id} className={`h-64 w-96`} />
 						</div>
-					</motion.h1>{" "}
+					</motion.h1>
 				</div>
-				<div>hello my name is bart simpson</div>
 			</section>
 		</div>
 	);
 }
 
 function ImageComponent({ id }) {
-	const ref = useRef(null);
-	const { scrollYProgress } = useScroll({ target: ref });
+	const { scrollYProgress } = useScroll();
 	const y = useParallax(scrollYProgress, 70);
 
 	return (
@@ -124,8 +122,10 @@ function ParallaxText({ children, baseVelocity = 400 }) {
 }
 
 export default function Home() {
-	const { scrollYProgress } = useScroll();
+	const { scrollYProgress } = useScroll({});
 	const x = useTransform(scrollYProgress, [-0.01, 0.3], [0, 2000]);
+
+	const y = useParallax(scrollYProgress, 70);
 
 	const scaleX = useSpring(scrollYProgress, {
 		stiffness: 100,
@@ -150,7 +150,7 @@ export default function Home() {
 				/>
 
 				<link
-					href="https://fonts.googleapis.com/css2?family=Changa+One&family=Erica+One&family=Fira+Sans:wght@400;500&family=Noticia+Text:ital,wght@0,700;1,400&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Erica+One&family=Fira+Sans:wght@400;500&family=Noticia+Text:ital,wght@0,700;1,400&family=Roboto+Mono&display=swap"
 					rel="stylesheet"
 				/>
 			</Head>
@@ -158,16 +158,19 @@ export default function Home() {
 			<main className="">
 				<div className="group h-screen flex flex-col justify-between bg-cover bg-[url('/wallpaper.svg')]">
 					<nav></nav>
-					<div className="flex justify-center pt-32 text-xl space-x-4 text-white  font-nokia">
-						<a className="bg-black px-8 py-4 hover:scale-105 hover:text-black hover:bg-white transition ease-in duration-500  cursor-pointer	">
-							Who we are
-						</a>
-						<a className="bg-black px-8 py-4 hover:scale-105 hover:text-black hover:bg-white transition ease-in duration-500 cursor-pointer	">
-							Archive
-						</a>
-						<a className="bg-black px-8 py-4 hover:scale-105 hover:text-black hover:bg-white transition ease-in duration-500 cursor-pointer ">
-							Contact
-						</a>
+					<div className="pt-[25em]">
+						<ImageText id={"/landinglips.png"} size={24} />
+						<div className="flex justify-center text-xl space-x-4 text-black  font-roboto">
+							<a className="bg-white px-12 py-4 border border-[#7a7a7a]  text-black hover:bg-black hover:text-white transition ease-in duration-500  cursor-pointer	">
+								Who we are
+							</a>
+							<a className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer	">
+								Archive
+							</a>
+							<a className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer ">
+								Contact
+							</a>
+						</div>
 					</div>
 					<div className="font-ericas text-[6em] text-black transition ease-in duration-400   tracking-tight">
 						<Title style={{ x }}>SPRING EDITION 2022 BELOW</Title>
@@ -192,7 +195,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className="min-h-screen bg-white text-black">
+				<div className="pt-40 min-h-screen bg-white flex flex-col justify-end text-black">
 					<Viewer article={"disor_e2022s.pdf"} />
 				</div>
 

@@ -1,5 +1,6 @@
 import { pdfjs, Document, Page, twoColumnRight } from "react-pdf";
 import React, { useState, useEffect } from "react";
+import ViewerButton from "./viewerButton";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -70,35 +71,38 @@ export default function StoryTeller({ article }) {
 	}, []);
 
 	return (
-		<div className="min-h-screen pt-40 text-black flex justify-center items-center ">
-			<div>
-				<div className="text-3xl flex space-x-8 font-semibold font-firas">
-					<a
-						onClick={goToPrevPage}
-						className="bg-black py-3 px-4 text-white cursor-pointer"
-					>
-						Previous
-					</a>
-					<a
-						onClick={goToNextPage}
-						className="bg-black py-3 px-4 text-white cursor-pointer"
-					>
-						Next
-					</a>
-				</div>
-				<div className="flex justify-center  h-1/2">
-					<div className="flex justify-center bg-black p-3">
-						<Document file={article} onLoadSuccess={onDocumentLoadSuccess}>
-							<Page pageNumber={pageNumber} renderTextLayer={false} size="A4" />
-						</Document>
-						<Document file={article} onLoadSuccess={onDocumentLoadSuccess}>
-							<Page
-								pageNumber={pageNumber + 1 > numPages ? 1 : pageNumber + 1}
-								renderTextLayer={false}
-								size="A4"
-							/>
-						</Document>
+		<div className=" text-black ">
+			<div className="min-h-screen bg-black py-40 flex justify-center">
+				<div className="w-32 h-[700px] px-2 flex flex-col items-center justify-between text-lg  tracking-tightest font-roboto">
+					<div className="flex flex-col justify-center items-end text-white">
+						<div>Page {pageNumber}</div>
+						<div>{Math.round((pageNumber / numPages) * 100)}%</div>
 					</div>
+
+					<div className="flex flex-col justify-center">
+						<button onClick={goToPrevPage} className="">
+							<ViewerButton action="Back" />
+						</button>
+						<button onClick={goToNextPage}>
+							<ViewerButton action="Next" />
+						</button>
+					</div>
+
+					<button className="w-full -rotate-90 text-3xl cursor-pointer text-white">
+						Download
+					</button>
+				</div>
+				<div className="flex justify-center text-white">
+					<Document file={article} onLoadSuccess={onDocumentLoadSuccess}>
+						<Page pageNumber={pageNumber} renderTextLayer={false} size="A4" />
+					</Document>
+					<Document file={article} onLoadSuccess={onDocumentLoadSuccess}>
+						<Page
+							pageNumber={pageNumber + 1 > numPages ? 1 : pageNumber + 1}
+							renderTextLayer={false}
+							size="A4"
+						/>
+					</Document>
 				</div>
 			</div>
 		</div>

@@ -4,8 +4,8 @@ const about =
 export default function LandingText({}) {
 	return (
 		<div className=" ">
-			<div className="text-4xl pb-4 font-nokia">It's Fall 2022. </div>
-			<div className=" font-nokia">
+			<div className="text-4xl pb-4 font-roboto">It's Fall 2022. </div>
+			<div className=" font-roboto">
 				<span className="tracking-tighter transition ease-in duration-300 text-3xl">
 					You’re a
 					<span className="font-semibold text-5xl group px-2 cursor-pointer">
