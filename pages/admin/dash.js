@@ -31,7 +31,7 @@ export default function Dash(props) {
 
 			<div className="flex flex-wrap justify-center">
 				{acceptedFiles.map(({ path, size }) => {
-					return <Article name={path} size={size} />;
+					return <Article key={path} name={path} size={size} />;
 				})}
 			</div>
 		</div>
