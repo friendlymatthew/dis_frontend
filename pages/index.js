@@ -159,7 +159,7 @@ export default function Home() {
 			<main className="">
 				<div className="group h-screen flex flex-col justify-between bg-cover bg-[url('/wallpaper.svg')]">
 					<nav></nav>
-					<div className="pt-[25em]">
+					<div className="pt-[20em]">
 						<ImageText id={"/landinglips.png"} size={24} />
 						<div className="flex justify-center text-xl space-x-4 text-black  font-roboto">
 							<a className="bg-white px-12 py-4 border border-[#7a7a7a]  text-black hover:bg-black hover:text-white transition ease-in duration-500  cursor-pointer	">
@@ -175,19 +175,19 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="font-ericas text-[6em] text-black transition ease-in duration-400   tracking-tight">
+					<div className="font-roboto font-extrabold text-[1.5em] lg:text-[3em] xl:text-[4em] border-blue-300 border-b-4 text-black bg-white group-hover:bg-white transition ease-in duration-400   tracking-wide">
 						<Title style={{ x }}>SPRING EDITION 2022 BELOW</Title>
 					</div>
 				</div>
 
 				<div className="group flex flex-col justify-between min-h-screen lg:h-screen w-full group bg-white text-black">
 					<div className="">
-						<div className="my-8 bg-white text-xs font-nokia">
+						<div className="my-8 bg-white text-lg font-roboto">
 							<motion.div
 								className={styles.progressBar}
 								style={{ scaleX: scrollYProgress }}
 							>
-								Written by mk'23 & nl'23
+								@disorientation_wes
 							</motion.div>
 						</div>
 					</div>

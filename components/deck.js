@@ -23,7 +23,7 @@ export default function Deck() {
 				className={styles.progressBar}
 				style={{ scaleX: scrollYProgress }}
 			>
-				Written by mk'23 & nl'23
+				Written by mk&apos;23 & nl&apos;23
 			</motion.div>
 		</div>
 	);

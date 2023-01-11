@@ -2,7 +2,7 @@ import { pdfjs, Document, Page, twoColumnRight } from "react-pdf";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
+import Head from "next/head";
 const axios = require("axios").default;
 
 import styles from "../../styles/Home.module.css";
@@ -33,24 +33,40 @@ export default function Archive() {
 	}, []);
 
 	return (
-		<div className="bg-white min-h-screen flex flex-col justify-between items-center  text-black">
-			<nav className="flex space-x-2 justify-end w-8/12 py-4">
-				<div>home</div>
-				<div>archive</div>
-				<div>contact</div>
-			</nav>
-			<div className="flex flex-col justify-center items-center w-full">
-				<input
-					className="border outline-none border-black placeholder:text-black focus:placeholder:text-white focus:border-white bg-white h-16 text-3xl px-4 focus:bg-black focus:text-white transition ease-in duration-700 w-4/12"
-					placeholder="Search keywords for articles"
+		<div>
+			<Head>
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link
+					rel="preconnect"
+					href="https://fonts.gstatic.com"
+					crossOrigin="true"
 				/>
-				<div className="w-full grid grid-cols-4">
-					<div></div>
+
+				<link
+					href="https://fonts.googleapis.com/css2?family=Erica+One&family=Fira+Sans:wght@400;500&family=Noticia+Text:ital,wght@0,700;1,400&family=Roboto+Mono&display=swap"
+					rel="stylesheet"
+				/>
+			</Head>
+
+			<div className="bg-white min-h-screen font-roboto flex flex-col justify-between items-center  text-black">
+				<nav className="flex space-x-2 justify-end w-8/12 py-4">
+					<div>home</div>
+					<div>archive</div>
+					<div>contact</div>
+				</nav>
+				<div className="flex flex-col justify-center items-center w-full">
+					<input
+						className="border outline-none border-black placeholder:text-black focus:placeholder:text-white focus:border-white bg-white h-16 text-3xl px-4 focus:bg-black focus:text-white transition ease-in duration-700 w-4/12"
+						placeholder="Search keywords for articles"
+					/>
+					<div className="w-full grid grid-cols-4">
+						<div></div>
+					</div>
 				</div>
+				<footer>
+					<div>this is the footer</div>
+				</footer>
 			</div>
-			<footer>
-				<div>this is the footer</div>
-			</footer>
 		</div>
 	);
 }

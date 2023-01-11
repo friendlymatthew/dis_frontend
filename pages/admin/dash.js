@@ -20,7 +20,7 @@ export default function Dash(props) {
 					})}
 				>
 					<input {...getInputProps()} />
-					<p>Drag 'n' drop some files here, or click to select files</p>
+					<p>Drag n drop some files here, or click to select files</p>
 				</div>
 
 				<aside className="bg-orange-300 mt-8">

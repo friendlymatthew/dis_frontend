@@ -4,10 +4,10 @@ const about =
 export default function LandingText({}) {
 	return (
 		<div className=" ">
-			<div className="text-4xl pb-4 font-roboto">It's Fall 2022. </div>
+			<div className="text-4xl pb-4 font-roboto">It&apos;s Fall 2022. </div>
 			<div className=" font-roboto">
 				<span className="tracking-tighter transition ease-in duration-300 text-3xl">
-					You’re a
+					You&apos;re a
 					<span className="font-semibold text-5xl group px-2 cursor-pointer">
 						senior,
 					</span>
@@ -35,7 +35,7 @@ export default function LandingText({}) {
 					get a hold of the ropes.
 				</span>
 			</div>
-			<div className="font-firas pt-8 text-3xl tracking-widest font-semibold text-black">
+			<div className="font-roboto pt-8 text-3xl tracking-widest font-semibold text-black">
 				{about}
 			</div>
 		</div>
