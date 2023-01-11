@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
+const axios = require("axios").default;
+
 import styles from "../../styles/Home.module.css";
 import { motion } from "framer-motion";
 import LandingText from "../../components/landingtext";
@@ -15,6 +17,20 @@ export default function Archive() {
 	const onDocumentLoadSuccess = ({ numPages }) => {
 		setNumPages(numPages);
 	};
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:9090/file/list/files")
+			.then(function (res) {
+				console.log(res);
+			})
+			.catch(function (err) {
+				console.log(err);
+			})
+			.then(function () {
+				console.log("hi");
+			});
+	}, []);
 
 	return (
 		<div className="bg-white min-h-screen flex flex-col justify-between items-center  text-black">
