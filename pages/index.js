@@ -35,7 +35,7 @@ function ImageText({ id, size, wig }) {
 				<div ref={ref} className="w-8/12 pl-30">
 					<motion.h1 style={{ y }}>
 						<div className="">
-							<img src={id} className={`h-64 w-96`} />
+							<img src={id} className={`md:h-64 md:w-96 h-20 w-32`} />
 						</div>
 					</motion.h1>
 				</div>
@@ -160,13 +160,13 @@ export default function Home() {
 				<div className="group h-screen flex flex-col justify-between bg-cover bg-[url('/wallpaper.svg')]">
 					<nav></nav>
 					<div className="pt-[20em]">
-						<ImageText id={"/landinglips.png"} size={24} />
-						<div className="flex justify-center text-xl space-x-4 text-black  font-roboto">
-							<a className="bg-white px-12 py-4 border border-[#7a7a7a]  text-black hover:bg-black hover:text-white transition ease-in duration-500  cursor-pointer	">
+						<ImageText id={"/landinglips.png"} />
+						<div className="flex justify-center text-sm lg:text-xl space-x-4 text-black  font-roboto">
+							<a className="cursor-help bg-white px-12 py-4 border border-[#7a7a7a]  text-black hover:bg-black hover:text-white transition ease-in duration-500 ">
 								Who we are
 							</a>
 							<Link href="/archive">
-								<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer	">
+								<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-context-menu	">
 									Archive
 								</div>
 							</Link>
@@ -175,7 +175,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="font-roboto font-extrabold text-[1.5em] lg:text-[3em] xl:text-[4em] border-white border-b-4 group-hover:border-blue-300 text-black bg-white group-hover:bg-white transition ease-in duration-400   tracking-wide">
+					<div className="font-roboto font-extrabold text-[1.5em] lg:text-[3em] xl:text-[4em] border-white border-b-4 text-black bg-white group-hover:bg-white transition ease-in duration-400   tracking-wide">
 						<Title style={{ x }}>SPRING EDITION 2022 BELOW</Title>
 					</div>
 				</div>

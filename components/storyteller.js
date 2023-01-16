@@ -92,7 +92,7 @@ export default function StoryTeller({ article }) {
 						Download
 					</button>
 				</div>
-				<div className="flex justify-center text-white">
+				<div className="grid grid-cols-1 lg:grid-cols-2 text-white">
 					<Document file={article} onLoadSuccess={onDocumentLoadSuccess}>
 						<Page pageNumber={pageNumber} renderTextLayer={false} size="A4" />
 					</Document>
