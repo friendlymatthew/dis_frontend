@@ -20,7 +20,7 @@
     "framer-motion": "^8.2.4",
     "next": "13.1.1",
     "pdf-parse": "^1.1.1",
-    "react": "18.2.0",
+    "react": "17.0.0",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
