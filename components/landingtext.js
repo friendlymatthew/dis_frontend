@@ -1,5 +1,7 @@
 const about =
-	"We’re here to help. Disorientation is a student publication that started in the 1970s for the purpose of telling new students everything about Wesleyan that no one else will. This year, though, as we emerge through the latest stages of the pandemic, everyone could use a little disorienting.";
+	"We’re here to help. Disorientation is a student publication that started in the 1970s for the purpose of telling new students everything about Wesleyan that no one else will. This year, though, as we emerge through the latest stages of the pandemic, everyone could use a little ";
+
+import ScrollAnimation from "react-animate-on-scroll";
 
 export default function LandingText({}) {
 	return (
@@ -41,7 +43,16 @@ export default function LandingText({}) {
 				</span>
 			</div>
 			<div className="font-roboto pt-8 text-xl md:text-3xl tracking-widest font-semibold text-black">
-				{about}
+				<span>{about}</span>
+				<ScrollAnimation
+					delay={2000}
+					duration={7}
+					animateIn="hinge"
+					animateOut="hinge"
+					initiallyVisible={true}
+				>
+					<span className="text-3xl">disorienting.</span>
+				</ScrollAnimation>
 			</div>
 		</div>
 	);

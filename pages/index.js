@@ -19,6 +19,7 @@ import LandingText from "../components/landingtext";
 import { Nav, Title } from "../styles/styled";
 import { wrap } from "@motionone/utils";
 import Viewer from "../components/storyteller";
+import ScrollAnimation from "react-animate-on-scroll";
 
 function useParallax(value, distance) {
 	return useTransform(value, [0, 1], [-distance, distance]);
@@ -154,6 +155,10 @@ export default function Home() {
 					href="https://fonts.googleapis.com/css2?family=Erica+One&family=Fira+Sans:wght@400;500&family=Noticia+Text:ital,wght@0,700;1,400&family=Roboto+Mono&display=swap"
 					rel="stylesheet"
 				/>
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+				/>
 			</Head>
 
 			<main className="">
@@ -162,17 +167,16 @@ export default function Home() {
 					<div className="pt-[20em]">
 						<ImageText id={"/landinglips.png"} />
 						<div className="flex justify-center text-sm lg:text-xl space-x-4 text-black  font-roboto">
-							<a className="cursor-help bg-white px-12 py-4 border border-[#7a7a7a]  text-black hover:bg-black hover:text-white transition ease-in duration-500 ">
-								Who we are
-							</a>
 							<Link href="/archive">
 								<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-context-menu	">
 									Archive
 								</div>
 							</Link>
-							<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer ">
-								Contact
-							</div>
+							<Link href="/contact">
+								<div className="bg-white px-12 py-4 border border-[#7a7a7a] text-black hover:bg-black hover:text-white transition ease-in duration-500 cursor-pointer ">
+									Contact
+								</div>
+							</Link>
 						</div>
 					</div>
 					<div className="font-roboto font-extrabold text-[1.5em] lg:text-[3em] xl:text-[4em] border-white border-b-4 text-black bg-white group-hover:bg-white transition ease-in duration-400   tracking-wide">
@@ -191,11 +195,17 @@ export default function Home() {
 							</motion.div>
 						</div>
 					</div>
-					<div className="w-full flex justify-center">
-						<div className="w-8/12">
-							<LandingText />
+					<ScrollAnimation
+						animateIn="wobble"
+						initiallyVisible={true}
+						duration={2}
+					>
+						<div className="w-full flex justify-center">
+							<div className="w-8/12">
+								<LandingText />
+							</div>
 						</div>
-					</div>
+					</ScrollAnimation>
 				</div>
 
 				<div className="pt-40 min-h-screen bg-white flex flex-col justify-end text-black">
